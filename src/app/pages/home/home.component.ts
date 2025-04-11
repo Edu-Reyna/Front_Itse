@@ -50,7 +50,8 @@ export class HomeComponent implements OnInit {
   }
 
   verDetalles(edificio: edificio): void {
-    this.router.navigate(['/resultado'], { state: { edificio } });
+    this.edificioService.mandarEdificio(edificio);
+    this.router.navigate(['/resultado']);
     console.log(edificio);
   }
 
