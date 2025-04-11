@@ -41,7 +41,6 @@ export class ResultadoBusquedaComponent implements AfterViewInit, OnInit {
     this.edificioService.getEdificiosParams(this.filtroForm.value.inputValue, this.filtroForm.value.tipoSalon, this.filtroForm.value.piso).subscribe({
       next: (data) => {
         this.edificios = data;
-        this.filtroForm.reset();
       },
       error: (error) => {
         console.error(error);
