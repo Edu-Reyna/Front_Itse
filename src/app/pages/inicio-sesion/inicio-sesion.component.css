@@ -1,0 +1,234 @@
+/* General */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
+  .fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* para que quede detrás de todo */
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, rgba(49, 34, 128, 0.85), rgba(179, 166, 44, 0.85));
+    color: #fff;
+    padding: 5px 20px;
+    flex-wrap: wrap;
+    min-height: 80px;
+  }
+  
+  .titulo-completo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .titulo-completo h1 {
+    font-size: 35px;
+    color: #FFD900;
+    margin: 0;
+    margin-right: 10px;
+    line-height: 1;
+  }
+  
+  .titulo2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .titulo2 p {
+    margin: 0;
+  }
+  
+  .icono-usuario {
+    position: relative;
+  }
+  
+  .icono-usuario i {
+    font-size: 36px;
+    cursor: pointer;
+  }
+  
+  /* MENÚ DESPLEGABLE */
+  .menu-desplegable {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    width: 150px;
+  }
+  
+  .menu-desplegable a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    transition: background 0.3s;
+  }
+  
+  .menu-desplegable a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .menu-desplegable.mostrar {
+    display: flex;
+  }
+  
+  /* FOOTER */
+  footer {
+    background: linear-gradient(to right, rgba(49, 34, 128, 0.85), rgba(179, 166, 44, 0.85));
+    color: #FFD900;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px 20px;
+    min-height: 80px;
+  }
+  
+  .footer-completo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-completo h1 {
+    font-size: 35px;
+    color: #FFD900;
+    margin: 0;
+    margin-right: 10px;
+    line-height: 1;
+  }
+  
+  .footerT2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footerT2 p {
+    margin: 0;
+  }
+  
+  .redes {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .redes i {
+    font-size: 28px;
+    background: white;
+    color: black;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* CUADRO DE INICIO DE SESIÓN */
+  .login-card {
+    background-color: white;
+    width: 430px; /* más ancho */
+    margin: 60px auto;
+    padding: 40px 40px; /* más padding para más altura */
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Jost', sans-serif;
+    text-align: center;
+  }
+  
+  .login-title {
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 25px;
+    line-height: 1.4;
+  }
+  
+  .login-card label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .login-card input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .login-btn {
+    background-color: #120CC6;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+  }
+  
+  .login-btn:hover {
+    background-color: #0f0aa9;
+  }
+  
+  .registro-link {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .registro-link a {
+    color: #120CC6;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .registro-link a:hover {
+    text-decoration: underline;
+  }
+  

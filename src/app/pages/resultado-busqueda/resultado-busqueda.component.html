@@ -1,0 +1,144 @@
+<div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="titulo-completo">
+        <a routerLink="/"><h1>ITSE</h1></a>
+        <div class="titulo2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+      <div class="icono-usuario">
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </header>
+
+    <!-- Barra de búsqueda -->
+    <div class="search-area">
+      <div class="search-box">
+        <i class="fas fa-search" style="color: #666;"></i>
+        <input type="text" placeholder="Buscar">
+        <button class="search-button">Buscar</button>
+        <button class="filter-button" id="filterBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      
+      <!-- Filtros desplegables -->
+      <form [formGroup]="filtroForm">
+      <div class="filter-dropdown" id="filterDropdown">
+        <div class="filter-content">
+          <div class="filter-column">
+            <h3>Tipo de salón</h3>
+            <div class="checkbox-item">
+              <input type="radio" id="salon" formControlName="tipoSalon" value="salon">
+              <label for="salon">Salón</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="radio" id="laboratorio" formControlName="tipoSalon" value="laboratorio">
+              <label for="laboratorio">Laboratorio</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="radio" id="cafeteria" formControlName="tipoSalon" value="cafeteria">
+              <label for="cafeteria">Cafetería</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="radio" id="banos" formControlName="tipoSalon" value="banos">
+              <label for="banos">Baños</label>
+            </div>
+          </div>
+          
+          <div class="filter-column">
+            <h3>Pisos</h3>
+            <div class="checkbox-item">
+              <input type="radio" id="p2" formControlName="piso" value="p2">
+              <label for="p2">P2</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="radio" id="n1" formControlName="piso" value="n1">
+              <label for="n1">N1</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="radio" id="pb" formControlName="piso" value="pb">
+              <label for="pb">PB</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="radio" id="s1" formControlName="piso" value="s1">
+              <label for="s1">-1</label>
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button (submit)="aplicarFiltros()" class="apply-button">Aplicar cambios</button>
+        </div>
+      </div>
+    </form>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+      <!-- Tarjeta de edificio -->
+      <div class="edificio-card">
+        <div class="edificio-imagen">
+          <p>Imagen del edificio</p>
+        </div>
+        <div class="edificio-info">
+          <h2>Edificio Tal</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+             Sed euismod auctor enim eget gravida. Suspendisse fringilla leo ut bibendum congue. Nullam tempor tincidunt augue a rutrum.</p>
+        </div>
+      </div>
+
+      <!-- Videos -->
+      <div class="videos-section">
+        <div class="video-card">
+          <p>Video pasillo</p>
+        </div>
+        <div class="video-card">
+          <p>Video como llegar</p>
+        </div>
+      </div>
+
+      <!-- Contenido relacionado -->
+      <div class="related-content">
+        <div class="related-header">
+          <p>Contenido Relacionado</p>
+        </div>
+        <div class="related-card">
+          <div class="related-video">
+            <p>Video pasillo</p>
+          </div>
+          <div class="related-description">
+            <p>Descripción</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ayuda -->
+      <div class="help-section">
+        <a routerLink="/ayuda" class="help-link">¿Necesita Ayuda?</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-completo">
+        <a routerLink="/inicio"><h1>ITSE</h1></a>
+        <div class="footerT2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+      <div class="redes">
+        <a href="#" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </footer>
+  </div>

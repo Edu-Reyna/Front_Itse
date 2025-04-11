@@ -1,0 +1,359 @@
+/* General */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    background-color: #002d5a;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #002d5a;
+  }
+  
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #312280, #b3a62c);
+    color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    flex-wrap: wrap;
+    min-height: 60px;
+  }
+  
+  .titulo-completo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .titulo-completo h1 {
+    font-size: 28px;
+    color: #FFD900;
+    margin: 0;
+    margin-right: 10px;
+    line-height: 1;
+  }
+  
+  .titulo2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .titulo2 p {
+    margin: 0;
+  }
+  
+  .icono-usuario {
+    font-size: 24px;
+    color: white;
+  }
+  
+  /* Área de búsqueda */
+  .search-area {
+    background-color: #002d5a;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 95%;
+    border: 2px solid #0056a3;
+    position: relative;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 30px;
+    padding: 0 10px;
+    overflow: hidden;
+  }
+  
+  .search-box input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .search-button {
+    background-color: #FFD900;
+    border: none;
+    color: #002d5a;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .filter-button {
+    background: none;
+    border: none;
+    color: #002d5a;
+    font-size: 20px;
+    margin-left: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  
+  /* Filtros desplegables */
+  .filter-dropdown {
+    position: absolute;
+    top: calc(100% - 10px);
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    width: 95%;
+    z-index: 10;
+    display: none;
+  }
+  
+  .filter-dropdown.show {
+    display: block;
+  }
+  
+  .filter-content {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .filter-column {
+    flex: 1;
+    padding: 0 15px;
+  }
+  
+  .filter-column h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .checkbox-item {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-item input {
+    margin-right: 8px;
+  }
+  
+  .filter-actions {
+    padding: 15px;
+    text-align: right;
+  }
+  
+  .apply-button {
+    background-color: #2839B5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .apply-button:hover {
+    background-color: #1e2b8f;
+  }
+  
+  /* Contenido principal */
+  .main-content {
+    flex-grow: 1;
+    padding: 0 15px;
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  /* Tarjeta de edificio */
+  .edificio-card {
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .edificio-imagen {
+    width: 40%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+  }
+  
+  .edificio-info {
+    width: 60%;
+    padding: 15px;
+  }
+  
+  .edificio-info h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  /* Videos section */
+  .videos-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .video-card {
+    background-color: white;
+    border-radius: 15px;
+    width: 48%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Contenido relacionado */
+  .related-content {
+    margin-top: 15px;
+  }
+  
+  .related-header {
+    background-color: #001a33;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .related-card {
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .related-video {
+    width: 40%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+  }
+  
+  .related-description {
+    width: 60%;
+    padding: 15px;
+  }
+  
+  /* Ayuda */
+  .help-section {
+    background-color: #001a33;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .help-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .help-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* FOOTER */
+  footer {
+    background: linear-gradient(to right, #312280, #b3a62c);
+    color: #FFD900;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px 15px;
+    min-height: 60px;
+  }
+  
+  .footer-completo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-completo h1 {
+    font-size: 28px;
+    color: #FFD900;
+    margin: 0;
+    margin-right: 10px;
+    line-height: 1;
+  }
+  
+  .footerT2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footerT2 p {
+    margin: 0;
+  }
+  
+  .redes {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  
+  .redes a:hover {
+    transform: scale(1.05);
+  }
+  
+  .redes i {
+    font-size: 20px;
+    color: #002d5a;
+  }

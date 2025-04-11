@@ -1,0 +1,91 @@
+<div class="container">
+    <header>
+      <div class="titulo-completo">
+        <h1>ITSE</h1>
+        <div class="titulo2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+  
+      <div class="icono-usuario">
+        <i class="fas fa-user-circle" id="user-icon"></i>
+        <div class="menu-desplegable" id="menu-usuario">
+          <a routerLink="/inicio">Inicio de sesión</a>
+          <a routerLink="/registro">Registrarse</a>
+        </div>
+      </div>
+    </header>
+  
+    <main>
+      <!-- Contenedor principal con dos columnas -->
+      <div class="contenido-principal">
+        <!-- Columna izquierda: Buscador -->
+        <div class="columna-buscador">
+          <div class="buscador">
+            <h2>Buscador de salones</h2>
+            <p>Ingrese un código de salón</p>
+            <div class="input-container">
+              <i class="fas fa-search search-icon"></i>
+              <input type="text" placeholder="Buscar" [(ngModel)]="inputValue" (keyup.enter)="obtenerEdificio(inputValue)"/>
+            </div>
+            <div class="ayuda">
+              <a routerLink="/ayuda">
+                <i class="fas fa-question-circle"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Columna derecha: Resultados -->
+        <div class="columna-resultados">
+          @if(edificioEncontrado != null) {
+            <div class="resultado-busqueda">
+              <h3>Resultados de la búsqueda:</h3>
+              
+              <!-- Grid de tarjetas -->
+              <div class="grid-tarjetas">
+                @for (edi of edificioEncontrado; track edi.id) {
+                  <div class="tarjeta-resultado">
+                    <div class="imagen-lugar">
+                      <img 
+                        [src]="edi.lugar.imagen_lugar" 
+                        alt="Imagen del lugar"
+                        class="imagen-salon"
+                      >
+                    </div>
+                    
+                    <div class="detalle-salon">
+                      <p class="titulo-salon">{{ edi.lugar.num_lugar }}</p>
+                      <p class="texto-secundario">Indicaciones: {{ edi.lugar.indicaciones }}</p>
+                      <p class="texto-secundario">Piso: {{ edi.lugar.num_piso }}</p>
+                    </div>
+                    
+                    <button class="btn-ver-detalles" (click)="verDetalles(edi)">
+                      Ver detalles
+                    </button>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </main>
+  
+    <footer>
+      <div class="footer-completo">
+        <h1>ITSE</h1>
+        <div class="footerT2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+      <div class="redes">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fas fa-times"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </footer>
+  </div>
+  

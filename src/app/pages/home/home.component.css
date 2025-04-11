@@ -1,0 +1,261 @@
+/* General */
+  
+*, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #312280, #b3a62c);
+    color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    flex-wrap: wrap;
+    min-height: 80px;
+  }
+  
+  .titulo-completo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .titulo-completo h1 {
+    font-size: 35px;
+    color: #FFD900;
+    margin: 0;
+    margin-right: 10px;
+    line-height: 1;
+  }
+  
+  .titulo2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .titulo2 p {
+    margin: 0;
+  }
+  
+  .icono-usuario {
+    position: relative;
+  }
+  
+  .icono-usuario i {
+    font-size: 36px;
+    cursor: pointer;
+  }
+  
+  /* MENÚ DESPLEGABLE */
+  .menu-desplegable {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    width: 150px;
+  }
+  
+  .menu-desplegable a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    transition: background 0.3s;
+  }
+  
+  .menu-desplegable a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .menu-desplegable.mostrar {
+    display: flex;
+  }
+  
+  /* MAIN */
+  main {
+    flex: 1;
+    background-color: #002d5a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+  }
+  
+  .buscador {
+    text-align: center;
+  }
+  
+  .buscador h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 300px;
+    margin: 20px auto;
+  }
+  
+  .input-container input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    color: black;
+  }
+  
+  .search-icon {
+    color: gray;
+    margin-right: 10px;
+  }
+  
+  .ayuda i {
+    font-size: 24px;
+    color: white;
+    background-color: #073a6d;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  /* FOOTER */
+  footer {
+    background: linear-gradient(to right, #312280, #b3a62c);
+    color: #FFD900;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px 20px;
+    min-height: 80px;
+  }
+  
+  .footer-completo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-completo h1 {
+    font-size: 35px;
+    color: #FFD900;
+    margin: 0;
+    margin-right: 10px;
+    line-height: 1;
+  }
+  
+  .footerT2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footerT2 p {
+    margin: 0;
+  }
+  
+  .redes {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .redes i {
+    font-size: 28px;
+    background: white;
+    color: black;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* Tarjetas de resultados */
+.tarjeta-resultado {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+  overflow: hidden;
+  max-width: 350px;
+  width: 100%;
+}
+
+.imagen-lugar {
+  height: 180px;
+  overflow: hidden;
+}
+
+.imagen-salon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.detalle-salon {
+  padding: 15px;
+}
+
+.titulo-salon {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 8px;
+}
+
+.texto-secundario {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+/* Efecto hover en tarjetas */
+.tarjeta-resultado:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-resultado:hover .imagen-salon {
+  transform: scale(1.05);
+}
+
+.btn-ver-detalles {
+  background-color: #0f5ba8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.btn-ver-detalles:hover {
+  background-color: #002d5a;
+}

@@ -1,0 +1,71 @@
+  <!-- Imagen de fondo -->
+  <img src="images/ITSE-PANAMA.jpg" alt="Fondo ITSE" class="fondo" />
+
+  <div class="container">
+    <!-- HEADER / NAVBAR -->
+    <header>
+      <div class="titulo-completo">
+        <a routerLink="/"><h1>ITSE</h1></a>
+        <div class="titulo2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+
+      <div class="icono-usuario">
+        <i class="fas fa-user-circle" id="user-icon"></i>
+        <div class="menu-desplegable" id="menu-usuario">
+          <a routerLink="/">Inicio</a>
+          <a routerLink="/registro">Registrarse</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- CUADRO DE REGISTRO -->
+    <main class="contenido-fondo">
+      <div class="registro-cuadro">
+        <h2><strong>INGRESE SUS <br /> CREDENCIALES</strong></h2>
+
+        <div class="nombre-apellido">
+          <div class="campo">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" />
+          </div>
+          <div class="campo">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" />
+          </div>
+        </div>
+
+        <label for="carrera">Carrera en curso:</label>
+        <input type="text" id="carrera" />
+
+        <label for="correo">Correo Institucional:</label>
+        <input type="email" id="correo" />
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" />
+
+        <label for="confirmar">Confirmar Contraseña:</label>
+        <input type="password" id="confirmar" />
+
+        <button type="submit">REGISTRAR</button>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-completo">
+        <a routerLink="/"><h1>ITSE</h1></a>
+        <div class="footerT2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+      <div class="redes">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fas fa-times"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </footer>
+  </div>
