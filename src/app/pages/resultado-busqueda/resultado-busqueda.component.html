@@ -53,7 +53,7 @@
                 type="radio"
                 id="cafeteria"
                 formControlName="tipoSalon"
-                value="cafeteria"
+                value="Cafetería"
               />
               <label for="cafeteria">Cafetería</label>
             </div>
@@ -75,15 +75,15 @@
               <label for="p2">P2</label>
             </div>
             <div class="checkbox-item">
-              <input type="radio" id="n1" formControlName="piso" value="n1" />
+              <input type="radio" id="n1" formControlName="piso" value="1" />
               <label for="n1">N1</label>
             </div>
             <div class="checkbox-item">
-              <input type="radio" id="pb" formControlName="piso" value="pb" />
+              <input type="radio" id="pb" formControlName="piso" value="PB" />
               <label for="pb">PB</label>
             </div>
             <div class="checkbox-item">
-              <input type="radio" id="s1" formControlName="piso" value="s1" />
+              <input type="radio" id="s1" formControlName="piso" value="-1" />
               <label for="s1">-1</label>
             </div>
           </div>
@@ -112,7 +112,7 @@
     <!-- Contenido relacionado -->
     <div class="related-content">
       <div class="related-header">
-        <p>Contenido Relacionado</p>
+        <p>Contenido Relacionado de {{ edificio?.lugar?.num_lugar }}</p>
       </div>
       <div class="related-card">
         <div class="related-video">
@@ -120,6 +120,18 @@
         </div>
         <div class="related-description">
           <p>{{ edificio?.lugar?.indicaciones }}</p>
+          @if (edificio?.lugar?.video_lugar) {
+            <iframe
+              width="560"
+              height="315"
+              [src]="getSafeUrl(edificio?.lugar?.video_lugar || '')"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          }
         </div>
       </div>
     </div>
@@ -131,23 +143,23 @@
   </div>
   } @else {
   <!-- Contenido principal -->
-  @for (edi of edificios; track edi.id) {
   <div class="main-content">
     <!-- Tarjeta de edificio -->
     <div class="edificio-card">
       <div class="edificio-imagen">
-        <img [src]="edi?.imagen_edificio" alt="" />
+        <img [src]="edificio?.imagen_edificio" alt="" />
       </div>
       <div class="edificio-info">
-        <h2>Edificio de {{ edi?.nombre_edificio }}</h2>
-        <p>{{ edi?.indicaciones_edificio }}</p>
+        <h2>Edificio de {{ edificio?.nombre_edificio }}</h2>
+        <p>{{ edificio?.indicaciones_edificio }}</p>
       </div>
     </div>
+    @for (edi of edificios; track edi.id) {
 
     <!-- Contenido relacionado -->
     <div class="related-content">
       <div class="related-header">
-        <p>Contenido Relacionado</p>
+        <p>Contenido Relacionado de {{ edificio?.lugar?.num_lugar }}</p>
       </div>
       <div class="related-card">
         <div class="related-video">
@@ -155,16 +167,30 @@
         </div>
         <div class="related-description">
           <p>{{ edi?.lugar?.indicaciones }}</p>
+          @if (edificio?.lugar?.video_lugar) {
+            <div class="related-video">
+              <iframe
+                width="560"
+                height="315"
+                [src]="getSafeUrl(edificio?.lugar?.video_lugar || '')"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            }
         </div>
       </div>
     </div>
-
-    <!-- Ayuda -->
-    <div class="help-section">
-      <a routerLink="/ayuda" class="help-link">¿Necesita Ayuda?</a>
-    </div>
+    }
   </div>
-  } }
+  <!-- Ayuda -->
+  <div class="help-section">
+    <a routerLink="/ayuda" class="help-link">¿Necesita Ayuda?</a>
+  </div>
+  }
 
   <!-- FOOTER -->
   <footer>

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router, RouterLink } from '@angular/router';
 import { EdificioService } from '../../services/edificio.service';
 import edificio from '../../models/edificio';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-resultado-busqueda',
@@ -20,7 +21,7 @@ export class ResultadoBusquedaComponent implements AfterViewInit, OnInit {
   piso: FormControl;
 
 
-  constructor(private router: Router, public edificioService: EdificioService) {
+  constructor(private router: Router, public edificioService: EdificioService, private sanitizer: DomSanitizer) {
     this.inputValue = new FormControl('');
     this.tipoSalon = new FormControl('', [Validators.required]);
     this.piso = new FormControl('', [Validators.required]);
@@ -78,5 +79,9 @@ export class ResultadoBusquedaComponent implements AfterViewInit, OnInit {
         filterDropdown.classList.remove('show');
       });
     }
+  }
+
+  getSafeUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }
