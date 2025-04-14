@@ -1,61 +1,22 @@
 <!-- Fondo con imagen -->
-<img src="../../images/ITSE-PANAMA.jpg" alt="Fondo ITSE" class="fondo" />
+<img src="../../assets/ITSE-PANAMA.jpg" alt="Fondo ITSE" class="fondo" />
 
 <div class="container">
   <!-- HEADER -->
-  <header>
-    <div class="titulo-completo">
-      <a routerLink="/"><h1>ITSE</h1></a>
-      <div class="titulo2">
-        <p>Instituto Técnico Superior</p>
-        <p>Especializado</p>
-      </div>
-    </div>
-
-    <div class="icono-usuario">
-      <i class="fas fa-user-circle" id="user-icon"></i>
-      <div class="menu-desplegable" id="menu-usuario">
-        <a routerLink="/">Inicio</a>
-        <a routerLink="/registro">Registrarse</a>
-      </div>
-    </div>
-  </header>
+  <app-header></app-header>
 
   <!-- MAIN -->
   <main style="flex: 1">
     <div class="login-card">
-      <h2 class="login-title">INGRESE SUS<br />CREDENCIALES</h2>
-      <label for="email">Correo Institucional:</label>
-      <input type="email" id="email" placeholder="Ingrese su correo" />
+      <h2 class="login-title">BIENVENIDO,<br/> INGRESE SU NOMBRE </h2>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" placeholder="Ingrese su nombre" />
 
-      <label for="password">Contraseña:</label>
-      <input
-        type="password"
-        id="password"
-        placeholder="Ingrese su contraseña"
-      />
+      <button class="login-btn">Comenzar tu recorrido</button>
 
-      <button class="login-btn">Iniciar Sesión</button>
-
-      <p class="registro-link">
-        ¿No tienes una cuenta? <a routerLink="/registro">Cree una aquí</a>
-      </p>
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-completo">
-      <a routerLink="/"><h1>ITSE</h1></a>
-      <div class="footerT2">
-        <p>Instituto Técnico Superior</p>
-        <p>Especializado</p>
-      </div>
-    </div>
-    <div class="redes">
-      <i class="fab fa-facebook-f"></i>
-      <i class="fas fa-times"></i>
-      <i class="fab fa-instagram"></i>
-    </div>
-  </footer>
+  <app-footer></app-footer>
 </div>

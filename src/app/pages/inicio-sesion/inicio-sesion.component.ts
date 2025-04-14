@@ -1,9 +1,11 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { HeaderComponent } from '../../header/header.component';
+import { FooterComponent } from '../../footer/footer.component';
 
 @Component({
   selector: 'app-inicio-sesion',
-  imports: [RouterLink],
+  imports: [RouterLink, HeaderComponent, FooterComponent],
   templateUrl: './inicio-sesion.component.html',
   styleUrl: './inicio-sesion.component.css'
 })

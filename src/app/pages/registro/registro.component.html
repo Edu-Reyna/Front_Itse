@@ -1,25 +1,9 @@
-  <!-- Imagen de fondo -->
-  <img src="images/ITSE-PANAMA.jpg" alt="Fondo ITSE" class="fondo" />
+<!-- Fondo con imagen -->
+<img src="../../assets/ITSE-PANAMA.jpg" alt="Fondo ITSE" class="fondo" />
 
   <div class="container">
     <!-- HEADER / NAVBAR -->
-    <header>
-      <div class="titulo-completo">
-        <a routerLink="/"><h1>ITSE</h1></a>
-        <div class="titulo2">
-          <p>Instituto Técnico Superior</p>
-          <p>Especializado</p>
-        </div>
-      </div>
-
-      <div class="icono-usuario">
-        <i class="fas fa-user-circle" id="user-icon"></i>
-        <div class="menu-desplegable" id="menu-usuario">
-          <a routerLink="/">Inicio</a>
-          <a routerLink="/registro">Registrarse</a>
-        </div>
-      </div>
-    </header>
+   <app-header></app-header>
 
     <!-- CUADRO DE REGISTRO -->
     <main class="contenido-fondo">
@@ -54,18 +38,5 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
-      <div class="footer-completo">
-        <a routerLink="/"><h1>ITSE</h1></a>
-        <div class="footerT2">
-          <p>Instituto Técnico Superior</p>
-          <p>Especializado</p>
-        </div>
-      </div>
-      <div class="redes">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fas fa-times"></i>
-        <i class="fab fa-instagram"></i>
-      </div>
-    </footer>
+    <app-footer></app-footer>
   </div>

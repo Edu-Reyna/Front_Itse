@@ -1,10 +1,12 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { HeaderComponent } from "../../header/header.component";
+import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-resultado-busqueda',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, HeaderComponent, FooterComponent],
   templateUrl: './resultado-busqueda.component.html',
   styleUrl: './resultado-busqueda.component.css'
 })
