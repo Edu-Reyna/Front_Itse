@@ -175,6 +175,16 @@ html, body {
     cursor: pointer;
     font-weight: bold;
   }
+
+  .apply-button2 {
+    background-color: #1a9e00;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
   
   .apply-button:hover {
     background-color: #1e2b8f;

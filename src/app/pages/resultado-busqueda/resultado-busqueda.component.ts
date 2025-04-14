@@ -1,6 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { EdificioService } from '../../services/edificio.service';
+import edificio from '../../models/edificio';
+import { DomSanitizer } from '@angular/platform-browser';
 import { HeaderComponent } from "../../header/header.component";
 import { FooterComponent } from "../../footer/footer.component";
 
@@ -12,34 +15,43 @@ import { FooterComponent } from "../../footer/footer.component";
 })
 export class ResultadoBusquedaComponent implements AfterViewInit, OnInit {
 
+  edificios: edificio[] = [];
+  edificio : edificio | undefined;
   filtroForm: FormGroup;
+  inputValue: FormControl;
   tipoSalon: FormControl;
   piso: FormControl;
 
 
-  constructor(private router: Router, private fb: FormBuilder) { 
-    this.tipoSalon = new FormControl('');
-    this.piso = new FormControl('');
+  constructor(private router: Router, public edificioService: EdificioService, private sanitizer: DomSanitizer) {
+    this.inputValue = new FormControl('');
+    this.tipoSalon = new FormControl('', [Validators.required]);
+    this.piso = new FormControl('', [Validators.required]);
 
     this.filtroForm = new FormGroup({
+      inputValue: this.inputValue,
       tipoSalon: this.tipoSalon, 
       piso: this.piso 
     });
   }
 
   ngOnInit(): void {
-    const navigation = this.router.getCurrentNavigation();
-    const edificio = navigation?.extras.state?.['edificio'];
-    console.log(edificio);
+    this.edificio = this.edificioService.obtenerEdificio();  
   }
   
-  aplicarFiltros(): void {
-    console.log(this.filtroForm.value);
-  }
 
-  onRadioChange(event: any, formControlName: string) {
-    const value = event.target.value;
-    this.filtroForm.get(formControlName)?.setValue(value); // Asigna un string
+  getEdificios() {
+    this.edificioService.getEdificiosParams(this.filtroForm.value.inputValue, this.filtroForm.value.tipoSalon, this.filtroForm.value.piso).subscribe({
+      next: (data) => {
+        this.edificios = data;
+        for (const edificio of this.edificios) {
+          console.log(edificio.lugar.video_lugar);
+        }
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
   }
 
   ngAfterViewInit(): void {
@@ -73,4 +85,12 @@ export class ResultadoBusquedaComponent implements AfterViewInit, OnInit {
       });
     }
   }
+
+  getSafeUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  resetearFiltros() {
+    this.filtroForm.reset();
+    }
 }

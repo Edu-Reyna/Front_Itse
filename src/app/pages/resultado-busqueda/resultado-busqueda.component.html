@@ -5,113 +5,207 @@
     <!-- HEADER -->
    <app-header></app-header>
 
-    <!-- Barra de búsqueda -->
-    <div class="search-area">
+  <!-- Barra de búsqueda -->
+  <div class="search-area">
+    <form [formGroup]="filtroForm" (submit)="getEdificios()">
       <div class="search-box">
-        <i class="fas fa-search" style="color: #666;"></i>
-        <input type="text" placeholder="Buscar">
+        <i class="fas fa-search" style="color: #666"></i>
+        <input type="text" placeholder="Buscar" formControlName="inputValue" />
         <button class="search-button">Buscar</button>
         <button class="filter-button" id="filterBtn">
           <i class="fas fa-bars"></i>
         </button>
       </div>
-      
+
       <!-- Filtros desplegables -->
-      <form [formGroup]="filtroForm">
       <div class="filter-dropdown" id="filterDropdown">
         <div class="filter-content">
           <div class="filter-column">
             <h3>Tipo de salón</h3>
             <div class="checkbox-item">
-              <input type="radio" id="salon" formControlName="tipoSalon" value="salon">
+              <input
+                type="radio"
+                id="salon"
+                formControlName="tipoSalon"
+                value="Salon"
+              />
               <label for="salon">Salón</label>
             </div>
             <div class="checkbox-item">
-              <input type="radio" id="laboratorio" formControlName="tipoSalon" value="laboratorio">
+              <input
+                type="radio"
+                id="laboratorio"
+                formControlName="tipoSalon"
+                value="Laboratorio"
+              />
               <label for="laboratorio">Laboratorio</label>
             </div>
             <div class="checkbox-item">
-              <input type="radio" id="cafeteria" formControlName="tipoSalon" value="cafeteria">
+              <input
+                type="radio"
+                id="cafeteria"
+                formControlName="tipoSalon"
+                value="Cafetería"
+              />
               <label for="cafeteria">Cafetería</label>
             </div>
             <div class="checkbox-item">
-              <input type="radio" id="banos" formControlName="tipoSalon" value="banos">
+              <input
+                type="radio"
+                id="banos"
+                formControlName="tipoSalon"
+                value="Baño"
+              />
               <label for="banos">Baños</label>
             </div>
           </div>
-          
+
           <div class="filter-column">
             <h3>Pisos</h3>
             <div class="checkbox-item">
-              <input type="radio" id="p2" formControlName="piso" value="p2">
+              <input type="radio" id="p2" formControlName="piso" value="2" />
               <label for="p2">P2</label>
             </div>
             <div class="checkbox-item">
-              <input type="radio" id="n1" formControlName="piso" value="n1">
+              <input type="radio" id="n1" formControlName="piso" value="1" />
               <label for="n1">N1</label>
             </div>
             <div class="checkbox-item">
-              <input type="radio" id="pb" formControlName="piso" value="pb">
+              <input type="radio" id="pb" formControlName="piso" value="PB" />
               <label for="pb">PB</label>
             </div>
             <div class="checkbox-item">
-              <input type="radio" id="s1" formControlName="piso" value="s1">
+              <input type="radio" id="s1" formControlName="piso" value="-1" />
               <label for="s1">-1</label>
             </div>
           </div>
         </div>
         <div class="filter-actions">
-          <button (submit)="aplicarFiltros()" class="apply-button">Aplicar cambios</button>
+          <button type="submit" class="apply-button">Aplicar cambios</button>
+        </div>
+        <div class="filter-actions">
+          <button type="submit" (click)="resetearFiltros()" class="apply-button2">Resetear Cambios</button>
         </div>
       </div>
     </form>
-    </div>
+  </div>
 
-    <!-- Contenido principal -->
-    <div class="main-content">
-      <!-- Tarjeta de edificio -->
-      <div class="edificio-card">
-        <div class="edificio-imagen">
-          <p>Imagen del edificio</p>
-        </div>
-        <div class="edificio-info">
-          <h2>Edificio Tal</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-             Sed euismod auctor enim eget gravida. Suspendisse fringilla leo ut bibendum congue. Nullam tempor tincidunt augue a rutrum.</p>
-        </div>
+  @if(filtroForm.untouched){
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <!-- Tarjeta de edificio -->
+    <div class="edificio-card">
+      <div class="edificio-imagen">
+        <img [src]="edificio?.imagen_edificio" alt="" />
       </div>
-
-      <!-- Videos -->
-      <div class="videos-section">
-        <div class="video-card">
-          <p>Video pasillo</p>
-        </div>
-        <div class="video-card">
-          <p>Video como llegar</p>
-        </div>
-      </div>
-
-      <!-- Contenido relacionado -->
-      <div class="related-content">
-        <div class="related-header">
-          <p>Contenido Relacionado</p>
-        </div>
-        <div class="related-card">
-          <div class="related-video">
-            <p>Video pasillo</p>
-          </div>
-          <div class="related-description">
-            <p>Descripción</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Ayuda -->
-      <div class="help-section">
-        <a routerLink="/ayuda" class="help-link">¿Necesita Ayuda?</a>
+      <div class="edificio-info">
+        <h2>Edificio de {{ edificio?.nombre_edificio }}</h2>
+        <p>{{ edificio?.indicaciones_edificio }}</p>
       </div>
     </div>
+
+    <!-- Contenido relacionado -->
+    <div class="related-content">
+      <div class="related-header">
+        <p>Contenido Relacionado de {{ edificio?.lugar?.num_lugar }}</p>
+      </div>
+      <div class="related-card">
+        <div class="related-video">
+          <img [src]="edificio?.lugar?.imagen_lugar" alt="" />
+        </div>
+        <div class="related-description">
+          <p>{{ edificio?.lugar?.indicaciones }}</p>
+          @if (edificio?.lugar?.video_lugar) {
+            <iframe
+              width="560"
+              height="315"
+              class="ml-6"
+              [src]="getSafeUrl(edificio?.lugar?.video_lugar || '')"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Ayuda -->
+    <div class="help-section">
+      <a routerLink="/ayuda" class="help-link">¿Necesita Ayuda?</a>
+    </div>
+  </div>
+  } @else {
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <!-- Tarjeta de edificio -->
+    <div class="edificio-card">
+      <div class="edificio-imagen">
+        <img [src]="edificio?.imagen_edificio" alt="" />
+      </div>
+      <div class="edificio-info">
+        <h2>Edificio de {{ edificio?.nombre_edificio }}</h2>
+        <p>{{ edificio?.indicaciones_edificio }}</p>
+      </div>
+    </div>
+    @for (edi of edificios; track edi.id) {
+
+    <!-- Contenido relacionado -->
+    <div class="related-content">
+      <div class="related-header">
+        <p>Contenido Relacionado de {{ edi?.lugar?.num_lugar }}</p>
+      </div>
+      <div class="related-card">
+        <div class="related-video">
+          <img [src]="edi?.lugar?.imagen_lugar" alt="" />
+        </div>
+        <div class="related-description">
+          <p>{{ edi?.lugar?.indicaciones }}</p>
+          @if (edi?.lugar?.video_lugar) {
+              <iframe
+                width="560"
+                height="315"
+                class="ml-6"
+                [src]="getSafeUrl(edi?.lugar?.video_lugar || '')"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            }
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  <!-- Ayuda -->
+  <div class="help-section">
+    <a routerLink="/ayuda" class="help-link">¿Necesita Ayuda?</a>
+  </div>
+  }
 
     <!-- FOOTER -->
-    <app-footer></app-footer> 
+    <footer>
+      <div class="footer-completo">
+        <a routerLink="/inicio"><h1>ITSE</h1></a>
+        <div class="footerT2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+      <div class="redes">
+        <a href="#" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </footer>
   </div>
