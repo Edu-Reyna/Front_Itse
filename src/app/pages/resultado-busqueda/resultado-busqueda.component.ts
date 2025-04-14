@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { EdificioService } from '../../services/edificio.service';
 import edificio from '../../models/edificio';
@@ -42,6 +42,9 @@ export class ResultadoBusquedaComponent implements AfterViewInit, OnInit {
     this.edificioService.getEdificiosParams(this.filtroForm.value.inputValue, this.filtroForm.value.tipoSalon, this.filtroForm.value.piso).subscribe({
       next: (data) => {
         this.edificios = data;
+        for (const edificio of this.edificios) {
+          console.log(edificio.lugar.video_lugar);
+        }
       },
       error: (error) => {
         console.error(error);
@@ -84,4 +87,8 @@ export class ResultadoBusquedaComponent implements AfterViewInit, OnInit {
   getSafeUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
+  resetearFiltros() {
+    this.filtroForm.reset();
+    }
 }

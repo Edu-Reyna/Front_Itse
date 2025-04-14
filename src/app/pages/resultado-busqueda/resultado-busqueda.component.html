@@ -91,6 +91,9 @@
         <div class="filter-actions">
           <button type="submit" class="apply-button">Aplicar cambios</button>
         </div>
+        <div class="filter-actions">
+          <button type="submit" (click)="resetearFiltros()" class="apply-button2">Resetear Cambios</button>
+        </div>
       </div>
     </form>
   </div>
@@ -124,6 +127,7 @@
             <iframe
               width="560"
               height="315"
+              class="ml-6"
               [src]="getSafeUrl(edificio?.lugar?.video_lugar || '')"
               title="YouTube video player"
               frameborder="0"
@@ -159,7 +163,7 @@
     <!-- Contenido relacionado -->
     <div class="related-content">
       <div class="related-header">
-        <p>Contenido Relacionado de {{ edificio?.lugar?.num_lugar }}</p>
+        <p>Contenido Relacionado de {{ edi?.lugar?.num_lugar }}</p>
       </div>
       <div class="related-card">
         <div class="related-video">
@@ -167,19 +171,18 @@
         </div>
         <div class="related-description">
           <p>{{ edi?.lugar?.indicaciones }}</p>
-          @if (edificio?.lugar?.video_lugar) {
-            <div class="related-video">
+          @if (edi?.lugar?.video_lugar) {
               <iframe
                 width="560"
                 height="315"
-                [src]="getSafeUrl(edificio?.lugar?.video_lugar || '')"
+                class="ml-6"
+                [src]="getSafeUrl(edi?.lugar?.video_lugar || '')"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
               ></iframe>
-            </div>
             }
         </div>
       </div>
