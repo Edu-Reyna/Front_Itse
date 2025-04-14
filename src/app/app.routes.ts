@@ -6,9 +6,9 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { ResultadoBusquedaComponent } from './pages/resultado-busqueda/resultado-busqueda.component';
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
+    {path: 'home', component: HomeComponent},
     {path: 'ayuda', component: AyudaComponent},
-    {path: 'inicio', component: InicioSesionComponent},
+    {path: '', component: InicioSesionComponent},
     {path: 'registro', component: RegistroComponent},
     {path: 'resultado', component: ResultadoBusquedaComponent}
 ];

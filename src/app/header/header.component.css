@@ -84,3 +84,8 @@
 .header-logo {
   width: 100%;
 }
+
+.nombre-usuario  {
+  font-size: 24px !important; 
+  color: #ffffff;
+}

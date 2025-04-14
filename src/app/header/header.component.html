@@ -1,13 +1,24 @@
 <header>
   <div class="titulo-completo">
-    <a routerLink="/"><img src="../../assets/Itse-logo.png" alt="Logo ITSE" class="footer-logo"/></a>
+    <a routerLink="/home"><img src="../../assets/Itse-logo.png" alt="Logo ITSE" class="header-logo"/></a>
   </div>
 
   <div class="icono-usuario">
+    @if (nombre) {
+      <i class="nombre-usuario" id="user-icon">Hola, {{ nombre }}</i>
+      <div class="menu-desplegable" id="menu-usuario">
+        <a routerLink="/home">Inicio</a>
+        <a routerLink="/ayuda">Ayuda</a>
+        <a routerLink="/">Iniciar Sesión</a>
+      </div>
+    } @else {
     <i class="fas fa-user-circle" id="user-icon"></i>
     <div class="menu-desplegable" id="menu-usuario">
-      <a routerLink="/">Inicio</a>
-      <a routerLink="/registro">Registrarse</a>
+      <a routerLink="/home">Inicio</a>
+      <a routerLink="/ayuda">Ayuda</a>
+      <a routerLink="/">Iniciar Sesión</a>
     </div>
+    }
+    
   </div>
 </header>

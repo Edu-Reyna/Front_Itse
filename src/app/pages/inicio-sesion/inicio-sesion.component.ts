@@ -1,15 +1,30 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../../header/header.component';
 import { FooterComponent } from '../../footer/footer.component';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-inicio-sesion',
-  imports: [RouterLink, HeaderComponent, FooterComponent],
+  imports: [RouterLink, HeaderComponent, FooterComponent, ReactiveFormsModule],
   templateUrl: './inicio-sesion.component.html',
   styleUrl: './inicio-sesion.component.css'
 })
 export class InicioSesionComponent implements AfterViewInit{
+  form: FormGroup;
+  nombre: FormControl;
+  constructor(private router: Router) {
+    this.nombre = new FormControl('');
+    this.form = new FormGroup({
+      nombre: this.nombre
+    });
+   }
+
+   OnSubmit() {
+    this.nombre.setValue(this.form.value.nombre);
+    localStorage.setItem('nombre', this.nombre.value);
+    this.router.navigate(['/home']);
+   }
 
   ngAfterViewInit(): void {
     const userIcon = document.getElementById('user-icon');

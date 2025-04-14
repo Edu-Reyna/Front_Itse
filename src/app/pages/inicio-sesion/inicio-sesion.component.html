@@ -9,11 +9,11 @@
   <main style="flex: 1">
     <div class="login-card">
       <h2 class="login-title">BIENVENIDO,<br/> INGRESE SU NOMBRE </h2>
+      <form [formGroup]="form" (ngSubmit)="OnSubmit()">
       <label for="name">Nombre:</label>
-      <input type="text" id="name" placeholder="Ingrese su nombre" />
-
-      <button class="login-btn">Comenzar tu recorrido</button>
-
+      <input type="text" id="name" placeholder="Ingrese su nombre" formControlName="nombre"/>
+      <button class="login-btn" type="submit">Comenzar tu recorrido</button>
+    </form>
     </div>
   </main>
 
