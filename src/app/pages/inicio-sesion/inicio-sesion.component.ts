@@ -6,7 +6,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-inicio-sesion',
-  imports: [RouterLink, HeaderComponent, FooterComponent, ReactiveFormsModule],
+  imports: [ HeaderComponent, FooterComponent, ReactiveFormsModule],
   templateUrl: './inicio-sesion.component.html',
   styleUrl: './inicio-sesion.component.css'
 })

@@ -5,7 +5,7 @@ import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-registro',
-  imports: [RouterLink, HeaderComponent, FooterComponent],
+  imports: [ HeaderComponent, FooterComponent],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
