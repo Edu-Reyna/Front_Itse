@@ -7,7 +7,7 @@ import edificio from '../models/edificio';
 })
 export class EdificioService {
   
-  ESCUELA_URL = 'http://localhost:3000/ITSE/Escuelas';
+  ESCUELA_URL = 'http://13.218.175.60:3000/ITSE/Escuelas';
 
   constructor(private http: HttpClient) { }
 
